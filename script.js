@@ -50,7 +50,7 @@ function clicked(event)
       kleks.src = 'kleks.png';
       kleks.onload = function()
       {
-        ctx.drawImage(kleks,x-12, y-12);
+        ctx.drawImage(kleks,x-12, y-24);
       }
     strzaly++;
     aktualizujTabele();
