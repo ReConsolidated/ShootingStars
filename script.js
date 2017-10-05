@@ -1,4 +1,5 @@
 
+
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 var img = new Image();
@@ -27,31 +28,35 @@ function aktualizujTabele()
 }
 function clicked(event)
 {
-
-    var x = event.clientX;
-    var y = event.clientY;
-    var i = 10;
-    var r = 28;
-    while (i!=0)
+    if (strzaly<3)
     {
-        if ((x-368)*(x-368) + (y-368)*(y-368) < r*r)
-        {
-            punkty[strzaly] += i;
-            i=0;
-        }
-        else
-        {
-          i--;
-          r += 36;
-        }
-
-    }
-    var kleks = new Image();
-      kleks.src = 'kleks.png';
-      kleks.onload = function()
+      var x = event.clientX;
+      var y = event.clientY;
+      var i = 10;
+      var r = 28;
+      while (i!=0)
       {
-        ctx.drawImage(kleks,x-12, y-24);
+          if ((x-368)*(x-368) + (y-368)*(y-368) < r*r)
+          {
+              punkty[strzaly] += i;
+              i=0;
+          }
+          else
+          {
+            i--;
+            r += 36;
+          }
+
       }
-    strzaly++;
-    aktualizujTabele();
+      var kleks = new Image();
+        kleks.src = 'kleks.png';
+        kleks.onload = function()
+        {
+          ctx.drawImage(kleks,x-12, y-24);
+        }
+      strzaly++;
+      aktualizujTabele();
+    }
+
 }
+
